@@ -89,6 +89,7 @@ class RestAuthorizeRequest extends AbstractRestRequest
             'transactions' => array(
                 array(
                     'description' => $this->getDescription(),
+                    'invoice_number' => $this->getTransactionId(),
                     'amount' => array(
                         'total' => $this->getAmount(),
                         'currency' => $this->getCurrency(),

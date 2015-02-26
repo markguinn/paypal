@@ -44,6 +44,7 @@ class RestAuthorizeRequestTest extends TestCase
         $this->assertSame('10.00', $data['transactions'][0]['amount']['total']);
         $this->assertSame('USD', $data['transactions'][0]['amount']['currency']);
         $this->assertSame('abc123 : Sheep', $data['transactions'][0]['description']);
+        $this->assertSame('abc123', $data['transactions'][0]['invoice_number']);
 
         $this->assertSame($card->getNumber(), $data['payer']['funding_instruments'][0]['credit_card']['number']);
         $this->assertSame($card->getBrand(), $data['payer']['funding_instruments'][0]['credit_card']['type']);
@@ -79,4 +80,5 @@ class RestAuthorizeRequestTest extends TestCase
         $this->request->setDescription('Sheep');
         $this->assertEquals('abc123 : Sheep', $this->request->getDescription());
     }
+
 }
